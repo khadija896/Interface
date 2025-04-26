@@ -1,0 +1,51 @@
+// Base class
+class Book {
+    String title;
+    String author;
+    String isbn;
+
+    // Constructor
+    public Book(String title, String author, String isbn) {
+        this.title = title;
+        this.author = author;
+        this.isbn = isbn;
+    }
+
+    // Method to get book details
+    public String getDetails() {
+        return "Title: " + title + "\nAuthor: " + author + "\nISBN: " + isbn;
+    }
+}
+
+// Derived class
+class BorrowedBook extends Book {
+    String borrowerName;
+    String dueDate;
+
+    // Constructor
+    public BorrowedBook(String title, String author, String isbn, String borrowerName, String dueDate) {
+        super(title, author, isbn);
+        this.borrowerName = borrowerName;
+        this.dueDate = dueDate;
+    }
+
+    // Method to get borrowed book details
+    public String getBorrowDetails() {
+        return getDetails() + "\nBorrower: " + borrowerName + "\nDue Date: " + dueDate;
+    }
+}
+
+// Main class
+public class LibrarySystem {
+    public static void main(String[] args) {
+        BorrowedBook book = new BorrowedBook(
+            "The Great Gatsby", 
+            "F. Scott Fitzgerald", 
+            "9780743273565", 
+            "John Doe", 
+            "2025-05-15"
+        );
+
+        System.out.println(book.getBorrowDetails());
+    }
+}
